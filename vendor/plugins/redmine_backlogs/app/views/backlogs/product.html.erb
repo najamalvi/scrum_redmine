@@ -1,0 +1,15 @@
+<%= render :partial => 'ticket_javascript' %>
+<script type="text/javascript" charset="utf-8">
+  document.observe("dom:loaded", function(){
+    $('content').writeAttribute('data-url', "<%= escape_javascript(@backlog_url) %>")
+    $('content').writeAttribute('data-prioritize-url', "<%= escape_javascript(url_for(:action => 'prioritize')) %>")
+    
+    new ScrumAlliance.ProductBacklog('content', 'Product Backlog Tickets')
+  });
+</script>
+
+<% content_for :sidebar do -%>
+  <p id="add_backlog_ticket"><%= link_to "Add Story", {:controller => 'issues', :action => 'new', :tracker_id => @story_tracker.id, :project_id => @project}, :class => 'icon icon-add' %></p>
+  
+  <%= render :partial => 'issues/sidebar' %>
+<% end -%>

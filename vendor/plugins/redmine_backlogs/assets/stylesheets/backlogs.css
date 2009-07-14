@@ -1,0 +1,40 @@
+/*#main-menu li a.product-backlog { background: #507AAA; margin-right: 10px; }#*/
+#main-menu li a.product-backlog.selected { background: #eee; margin-right: 10px; }
+
+#add_backlog_ticket { background: #fff; border: 1px solid #ddd; margin-top: 5px; padding-left: 10px; }
+#add_backlog_ticket a { padding-top: 6px; padding-bottom: 8px; display: block; }
+
+.product_backlog td.rank_handle { cursor: pointer; background: url(../images/bullet_reorder.png) no-repeat right center; padding-left: 20px; }
+
+/* issue styles for Product Backlog by tracker name (props to Wynn Netherland) */
+.product_backlog tr.odd.type-defect, .product_backlog table.list tbody tr.odd.type-defect:hover,
+.product_backlog tr.even.type-defect, .product_backlog table.list tbody tr.even.type-defect:hover,
+.product_backlog table.list tr.type-defect a { color: #CF0000; }
+
+.product_backlog tr.odd.type-request, .product_backlog table.list tbody tr.odd.type-request:hover,
+.product_backlog tr.even.type-request, .product_backlog table.list tbody tr.even.type-request:hover,
+.product_backlog table.list tr.type-request a { color: #0AA3AF; }
+
+.product_backlog tr.odd.type-task, .product_backlog table.list tbody tr.odd.type-task:hover,
+.product_backlog tr.even.type-task, .product_backlog table.list tbody tr.even.type-task:hover,
+.product_backlog table.list tr.type-task a { color: #999; }
+
+.product_backlog table.list tbody tr.even:hover, .product_backlog table.list tbody tr.odd:hover { background: #ffd;}
+
+/* issue styles for Sprint Backlog by status (props to Wynn Netherland) */
+/* ["1: New", "2: In Progress", "3: Needs Feedback", "4: Closed", "5: Blocked"] */
+.sprint_backlog tr.odd.status-2, .sprint_backlog table.list tbody tr.odd.status-2:hover,
+.sprint_backlog tr.even.status-2, .sprint_backlog table.list tbody tr.even.status-2:hover,
+.sprint_backlog table.list tr.status-2 a { color: #0AAF4F; }
+
+.sprint_backlog tr.odd.status-3, .sprint_backlog table.list tbody tr.odd.status-3:hover,
+.sprint_backlog tr.even.status-3, .sprint_backlog table.list tbody tr.even.status-3:hover,
+.sprint_backlog table.list tr.status-3 a { color: #0AA3AF; }
+
+.sprint_backlog tr.odd.status-5, .sprint_backlog table.list tbody tr.odd.status-5:hover,
+.sprint_backlog tr.even.status-5, .sprint_backlog table.list tbody tr.even.status-5:hover,
+.sprint_backlog table.list tr.status-5 a { color: #999; text-decoration: line-through;}
+
+.sprint_backlog tr.odd.status-4, .sprint_backlog table.list tbody tr.odd.status-4:hover,
+.sprint_backlog tr.even.status-4, .sprint_backlog table.list tbody tr.even.status-4:hover,
+.sprint_backlog table.list tr.status-4 a { color: #CF0000; }

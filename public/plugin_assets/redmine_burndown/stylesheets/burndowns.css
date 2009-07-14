@@ -1,0 +1,2 @@
+#sprint_burndown_list { padding: 0; list-style-type: none; }
+  #sprint_burndown_list li.selected { font-weight: bold; }

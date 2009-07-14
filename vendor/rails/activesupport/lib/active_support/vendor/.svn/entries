@@ -1,0 +1,40 @@
+9
+
+dir
+1
+file:///home/najam/svn/repos/redmine-0.8.4/vendor/rails/activesupport/lib/active_support/vendor
+file:///home/najam/svn/repos
+
+
+
+2009-06-08T11:03:36.317867Z
+1
+najam
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+4acfab02-d26c-4a88-b8ae-70005e2fca4d
+
+xml-simple-1.0.11
+dir
+
+builder-2.1.2
+dir
+
+tzinfo-0.3.11
+dir
+
+memcache-client-1.5.0
+dir
+

@@ -1,0 +1,11 @@
+<h2><%= l(:timesheet_title)%></h2>
+
+<%= render :partial => 'form' %>
+
+<% content_for(:header_tags) do %>
+<style type="text/css">
+
+div#timesheet-form p { padding:0px 10px; float:left; }
+
+</style>
+<% end %>

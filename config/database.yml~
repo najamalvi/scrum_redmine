@@ -1,0 +1,15 @@
+production:
+  adapter: mysql
+  database: redmine84
+  host: localhost
+  username: root
+  password: abcdef
+  encoding: utf8
+
+development:
+  adapter: mysql
+  database: redmine84
+  host: localhost
+  username: root
+  password: abcdef
+  encoding: utf8

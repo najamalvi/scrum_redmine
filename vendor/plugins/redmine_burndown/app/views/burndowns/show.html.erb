@@ -1,0 +1,12 @@
+<h2><%= @version.name %> <%= l(:burndown) %></h2>
+
+<p><%= image_tag(@chart.to_s) %></p>
+
+<% content_for :sidebar do -%>
+  <h3><%= l(:label_version_plural) %></h3>
+  <ul id="sprint_burndown_list">
+    <% @project.versions.each do |version| -%>
+      <li<%= %Q[ class="selected"] if @version == version %>><%= link_to(version.name, show_burndown_path(:project_id => @project, :id => version)) %></li>
+    <% end -%>
+  </ul>
+<% end -%>

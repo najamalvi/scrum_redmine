@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby
+require File.dirname(__FILE__) + '/../config/environment'
+require 'hpricot'
+
+ProjectMapping = { 'Product Backlog' => 'scrumalliance', 
+                   'Website' => 'website', 
+                   'Scrum Hub' => 'scrumhub', 
+                   'Certification' => 'certification' }
+
+PriorityMapping = { '' => 'Normal', 'Medium' => 'Normal', 'High' => 'High', 'Low' => 'Low', 'TimeCritical' => 'High' }
+
+FieldOrder = { :subject => 0, :id => 1, :owner => 2, :priority => 3, :estimate => 4, :project => 5, :description => 6, :rank => 7 }
+all_projects = Project.all
+all_priorities = Enumeration.get_values "IPRI"
+
+tracker = Tracker.find_by_name "Story"
+
+# Title, ID, Priority, Estimate, Project, Description
+doc = Hpricot(File.read("stories.xml"))
+Issue.transaction do
+  (doc/"tbody tr").each do |row|
+    cells = Array(row/"td")
+    next if cells.first.classes.include?('columnheader')
+    cells = cells.map(&:inner_text)
+    values = FieldOrder.keys.inject({}) do |hash, key|
+      hash[key] = cells[FieldOrder[key]]
+      hash
+    end
+    
+    project = all_projects.detect {|project| project.identifier == ProjectMapping[values[:project]] }
+    priority = all_priorities.detect {|priority| priority.name == PriorityMapping[values[:priority]] }
+    
+    author = User.find_by_firstname_and_lastname(*(values[:owner].split))
+    author ||= User.find_by_login("dminor")
+    subject = values[:subject]
+    description = values[:description].blank? ? subject : values[:description]
+    description += "\n\nVersionOne ID: #{cells[1]}"
+    if values[:estimate] == "0.50"
+      estimate = ".5"
+    else
+      estimate = values[:estimate].to_i
+    end
+    issue = project.issues.build(:subject => subject,
+                                 :priority_id => priority.id,
+                                 :description => description,
+                                 :author_id => author.id,
+                                 :tracker_id => tracker.id)
+    issue.custom_field_values = {"2" => estimate.to_s}
+    unless issue.valid?
+      puts "#{subject}: #{issue.errors.full_messages.join(', ')}"
+    end
+    issue.save!
+    puts "#{issue.id}: #{subject} (#{author})"
+  end
+end

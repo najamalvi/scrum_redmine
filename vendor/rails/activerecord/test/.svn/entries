@@ -1,0 +1,83 @@
+9
+
+dir
+1
+file:///home/najam/svn/repos/redmine-0.8.4/vendor/rails/activerecord/test
+file:///home/najam/svn/repos
+
+
+
+2009-06-08T11:03:36.317867Z
+1
+najam
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+4acfab02-d26c-4a88-b8ae-70005e2fca4d
+
+schema
+dir
+
+assets
+dir
+
+connections
+dir
+
+models
+dir
+
+config.rb
+file
+
+
+
+
+2009-06-08T11:04:20.000000Z
+2cec417ec9966c979e5314731c20060f
+2009-06-08T11:03:36.317867Z
+1
+najam
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+225
+
+fixtures
+dir
+
+migrations
+dir
+
+cases
+dir
+

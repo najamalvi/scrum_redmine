@@ -1,0 +1,7 @@
+.issue_list_group_heading { color: #000; font-weight: bold; }
+  #content table.list .issue_list_group_heading td { vertical-align: bottom; }
+    #content table.list .issue_list_group_heading td span { padding: 20px 0 0 0; display: block; }
+      #content table.list .issue_list_group_heading:hover>td { background: #fff; }
+      
+#group_selection, #column_selection { border-top: 1px solid #eee; margin-top: 7px; margin-bottom: 8px; }
+  #column_selection legend small { margin-left: 5px; }
