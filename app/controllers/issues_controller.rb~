@@ -52,7 +52,7 @@ class IssuesController < ApplicationController
     if @query.valid?
       limit = per_page_option
       respond_to do |format|
-        debugger
+      
         format.html { }
         format.atom { }
         format.csv  { limit = Setting.issues_export_limit.to_i }
