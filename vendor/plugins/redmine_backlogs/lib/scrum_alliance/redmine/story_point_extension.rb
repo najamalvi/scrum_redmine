@@ -3,7 +3,8 @@ module ScrumAlliance
     module StoryPointExtension
       module Issue
         def story_points
-          story_point_value = custom_values.detect {|cv| cv.custom_field_id == 2 }
+          #story_point_value = custom_values.detect {|cv| cv.custom_field_id == 2 }
+          story_point_value = custom_values.detect {|cv| cv.custom_field_id == 4 }
           story_point_value ? story_point_value.value.to_f : 0
         end
       end # Issue
