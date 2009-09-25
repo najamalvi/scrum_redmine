@@ -129,7 +129,7 @@ module Redmine
         pdf.Cell(30, row_height, l(:field_priority), 0, 0, 'L', 1)
         pdf.Cell(40, row_height, l(:field_assigned_to), 0, 0, 'L', 1)
         pdf.Cell(25, row_height, l(:field_updated_on), 0, 0, 'L', 1)
-        pdf.Cell(0, row_height, l(:field_subject), 0, 0, 'L', 1)
+        pdf.Cell(50, row_height, l(:field_subject), 0, 0, 'L', 1)
         pdf.Cell(0, row_height, l(:field_description), 0, 0, 'C', 1)
         pdf.Line(10, pdf.GetY, 287, pdf.GetY)
         pdf.Ln
@@ -146,7 +146,7 @@ module Redmine
           pdf.Cell(30, row_height, issue.priority.name, 0, 0, 'L', 1)
           pdf.Cell(40, row_height, issue.assigned_to ? issue.assigned_to.to_s : '', 0, 0, 'L', 1)
           pdf.Cell(25, row_height, format_date(issue.updated_on), 0, 0, 'L', 1)
-          pdf.MultiCell(0, row_height, (project == issue.project ? issue.subject : "#{issue.project} - #{issue.subject}"))
+          pdf.MultiCell(50, row_height, (project == issue.project ? issue.subject : "#{issue.project} - #{issue.subject}"))
           pdf.MultiCell(0, row_height, (project == issue.project ? issue.description : "#{issue.project} - #{issue.description}"))
           pdf.Line(10, pdf.GetY, 287, pdf.GetY)
           pdf.SetY(pdf.GetY() + 1)
